@@ -1,0 +1,1 @@
+export {CategoryValueText} from './CategoryValueText';
