@@ -11,8 +11,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 16,
     padding: 12,
     margin: 0,
-    borderBottomWidth: 5, // TODO: tmp shadow
-    borderRightWidth: 5, // TODO: tmp shadow
+    boxShadow: `5px 5px ${Colors.primary}`,
   },
   content: {
     flexDirection: 'row',
