@@ -1,6 +1,6 @@
 import React from 'react';
 import {Text, Button as ButtonRNP} from 'react-native-paper';
-import {GestureResponderEvent, ViewStyle} from 'react-native';
+import {GestureResponderEvent, type StyleProp, type ViewStyle} from 'react-native';
 import {Colors} from '../../utils';
 import {styles} from './Button.styled';
 
@@ -8,10 +8,10 @@ type ButtonMode = 'primary' | 'white';
 
 type ButtonProps = {
   title: string;
-  onPress: (event: GestureResponderEvent) => void;
+  onPress: (event?: GestureResponderEvent) => void;
   mode: ButtonMode;
   showStarIcon?: boolean;
-  style?: ViewStyle;
+  style?: StyleProp<ViewStyle>;
 };
 
 export const Button = ({
