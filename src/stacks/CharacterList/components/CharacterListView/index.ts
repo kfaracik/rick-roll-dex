@@ -1,1 +1,0 @@
-export {CharacterListView} from './CharacterListView';

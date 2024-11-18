@@ -6,4 +6,12 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
   },
+  listContainer: {
+    flex: 1,
+    height: 200,
+    width: '100%',
+  },
+  separator: {
+    height: 24,
+  },
 });

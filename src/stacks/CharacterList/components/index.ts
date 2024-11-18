@@ -1,1 +1,1 @@
-export {CharacterListView} from './CharacterListView';
+export {CharacterItem} from './CharacterItem';
