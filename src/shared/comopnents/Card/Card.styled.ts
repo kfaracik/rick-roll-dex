@@ -11,7 +11,13 @@ export const styles = StyleSheet.create({
     marginHorizontal: 16,
     padding: 12,
     margin: 0,
-    boxShadow: `5px 5px ${Colors.primary}`,
+    boxShadow: [
+      {
+        offsetX: 5,
+        offsetY: 5,
+        color: Colors.primary,
+      },
+    ],
   },
   content: {
     flexDirection: 'row',
