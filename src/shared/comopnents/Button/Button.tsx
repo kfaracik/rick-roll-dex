@@ -11,7 +11,7 @@ type ButtonProps = {
   onPress: (event: GestureResponderEvent) => void;
   mode: ButtonMode;
   showStarIcon?: boolean;
-  style: ViewStyle;
+  style?: ViewStyle;
 };
 
 export const Button = ({
@@ -35,7 +35,7 @@ export const Button = ({
   return (
     <ButtonRNP
       onPress={onPress}
-      icon={showStarIcon ? 'star' : undefined}
+      icon={showStarIcon ? 'star' : undefined} // TODO: fix icon
       mode="contained"
       style={[styles.button, buttonStyle, style]}
       uppercase={true}

@@ -6,6 +6,8 @@ export const styles = StyleSheet.create({
     borderRadius: 24,
     borderWidth: 1,
     borderColor: Colors.primary,
+    alignSelf: 'flex-start',
+    // height: 34, // TODO: fix
   },
   textPrimary: {
     color: Colors.white,
