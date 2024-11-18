@@ -2,14 +2,14 @@ import React from 'react';
 import {Alert, GestureResponderEvent, Image, View} from 'react-native';
 import {styles} from './CharacterItem.styled';
 import {CategoryValueText, Button, Card} from '../../../../shared/comopnents';
+import {Character} from '../../../../shared/api';
 
 // TODO: create and use API type
-type CharacterItemProps = {
+type CharacterItemProps = Pick<
+  Character,
+  'name' | 'status' | 'species' | 'image'
+> & {
   onPress: () => void;
-  name: string;
-  status: string;
-  species: string;
-  image: string;
 };
 
 export const CharacterItem = ({
@@ -19,17 +19,17 @@ export const CharacterItem = ({
   species,
   image,
 }: CharacterItemProps) => {
-  const onLikePress = (event: GestureResponderEvent) => {
-    event.stopPropagation();
-    Alert.alert('TODO implement');
+  const onLikePress = (event: GestureResponderEvent | undefined) => {
+    event?.stopPropagation();
+    Alert.alert('TODO implement like logic');
   };
 
   return (
     <Card onPress={onPress}>
       <View style={styles.textContainer}>
-        <CategoryValueText category="Name" value={name} />
-        <CategoryValueText category="Status" value={status} />
-        <CategoryValueText category="Species" value={species} />
+        <CategoryValueText category="NAME" value={name} />
+        <CategoryValueText category="STATUS" value={status} />
+        <CategoryValueText category="SPECIES" value={species} />
       </View>
       <View>
         <Button
