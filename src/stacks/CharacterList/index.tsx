@@ -12,6 +12,7 @@ export const CharacterListStack = () => {
       <Stack.Screen
         name={CharacterListStackRoutes.CharacterListScreen}
         children={CharacterListScreen}
+        options={{headerShown: false}}
       />
       <Stack.Screen
         name={CharacterListStackRoutes.CharacterDetailsStack}
