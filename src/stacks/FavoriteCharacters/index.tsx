@@ -11,6 +11,7 @@ export const FavoriteCharactersStack = () => {
       <Stack.Screen
         name={FavoriteCharactersStackRoutes.FavoriteCharactersScreen}
         children={FavoriteCharactersScreen}
+        options={{headerShown: false}}
       />
     </Stack.Navigator>
   );

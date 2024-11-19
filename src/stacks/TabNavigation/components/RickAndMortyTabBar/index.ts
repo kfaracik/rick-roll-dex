@@ -1,0 +1,1 @@
+export {RickAndMortyTabBar} from './RickAndMortyTabBar';

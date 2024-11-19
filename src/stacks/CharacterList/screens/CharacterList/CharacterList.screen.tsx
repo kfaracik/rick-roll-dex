@@ -12,7 +12,12 @@ import {CharacterListStackNavigationProp} from '../../CharacterList.routes';
 import {CharacterItem} from '../../components';
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import {Character, useCharacters} from '../../../../shared/api';
-import {Button, Card, Input} from '../../../../shared/comopnents';
+import {
+  Button,
+  Card,
+  Input,
+  ScreenContainer,
+} from '../../../../shared/comopnents';
 import {DATA} from '../../../../shared/api/mock';
 
 const ESTIMATED_ELEMENT_HEIGHT = 224;
@@ -79,34 +84,36 @@ const CharacterListScreen = () => {
   );
 
   return (
-    <KeyboardAvoidingView
-      behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Text style={styles.title}>Characters</Text>
-        <Input hint="Search the characters" clearInput={onClearInputPress} />
-        <Button title={'FILTER'} onPress={onFilterPress} mode={'primary'} />
-        {filterOptionsExpanded ? (
-          <Card>
-            <Text>TODO: Implement filters</Text>
-          </Card>
-        ) : null}
-      </View>
-      <View style={styles.listContainer}>
-        <FlashList
-          data={DATA} // TODO: replace with data={data?.results}
-          renderItem={renderItem}
-          keyExtractor={item => item.id.toString()}
-          onEndReached={handleLoadMore}
-          onEndReachedThreshold={0.5}
-          estimatedItemSize={ESTIMATED_ELEMENT_HEIGHT}
-          ListHeaderComponentStyle={styles.listHeader}
-          ListFooterComponent={footerComponent}
-          ListEmptyComponent={emptyComponent}
-          ItemSeparatorComponent={itemSeparator}
-        />
-      </View>
-    </KeyboardAvoidingView>
+    <ScreenContainer>
+      <KeyboardAvoidingView
+        behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
+        style={styles.container}>
+        <View style={styles.headerContainer}>
+          <Text style={styles.title}>Characters</Text>
+          <Input hint="Search the characters" clearInput={onClearInputPress} />
+          <Button title={'FILTER'} onPress={onFilterPress} mode={'primary'} />
+          {filterOptionsExpanded ? (
+            <Card>
+              <Text>TODO: Implement filters</Text>
+            </Card>
+          ) : null}
+        </View>
+        <View style={styles.listContainer}>
+          <FlashList
+            data={DATA} // TODO: replace with data={data?.results}
+            renderItem={renderItem}
+            keyExtractor={item => item.id.toString()}
+            onEndReached={handleLoadMore}
+            onEndReachedThreshold={0.5}
+            estimatedItemSize={ESTIMATED_ELEMENT_HEIGHT}
+            ListHeaderComponentStyle={styles.listHeader}
+            ListFooterComponent={footerComponent}
+            ListEmptyComponent={emptyComponent}
+            ItemSeparatorComponent={itemSeparator}
+          />
+        </View>
+      </KeyboardAvoidingView>
+    </ScreenContainer>
   );
 };
 
