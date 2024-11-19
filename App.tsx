@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import React from 'react';
-import {TabNavigationStack} from './src/stacks/TabNavigation';
 import {QueryClient, QueryClientProvider} from 'react-query';
+import {MainStack} from './src/stacks/Main';
 
 function App() {
   const queryClient = new QueryClient(); // TODO: config
@@ -9,7 +9,7 @@ function App() {
   return (
     <NavigationContainer>
       <QueryClientProvider client={queryClient}>
-        <TabNavigationStack />
+        <MainStack />
       </QueryClientProvider>
     </NavigationContainer>
   );

@@ -8,7 +8,6 @@ import {
 } from 'react-native';
 import {styles} from './CharacterList.styled';
 import {useNavigation} from '@react-navigation/native';
-import {CharacterListStackNavigationProp} from '../../CharacterList.routes';
 import {CharacterItem} from '../../components';
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import {Character, useCharacters} from '../../../../shared/api';
@@ -19,11 +18,13 @@ import {
   ScreenContainer,
 } from '../../../../shared/comopnents';
 import {DATA} from '../../../../shared/api/mock';
+import { MainStackNavigationProp } from '../../../Main/Main.routes';
 
 const ESTIMATED_ELEMENT_HEIGHT = 224;
 
 const CharacterListScreen = () => {
-  const {navigate} = useNavigation<CharacterListStackNavigationProp>();
+  const {navigate} = useNavigation<MainStackNavigationProp>();
+
   const [filterOptionsExpanded, setFilterOptionsExpanded] = useState(false);
   const [page, setPage] = useState(1);
   const [loadingMore, setLoadingMore] = useState(false);

@@ -1,10 +1,15 @@
 import {StyleSheet} from 'react-native';
-import {Colors} from 'react-native/Libraries/NewAppScreen';
+import {Colors} from '../../../../shared/utils';
 
 export const styles = StyleSheet.create({
   header: {
     padding: 16,
     flexDirection: 'row',
+  },
+  headerContainer: {
+    paddingLeft: 16,
+    paddingVertical: 24,
+    backgroundColor: Colors.primary,
   },
   headerText: {
     fontSize: 12,

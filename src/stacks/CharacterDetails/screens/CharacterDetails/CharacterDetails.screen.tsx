@@ -12,6 +12,7 @@ import {Button, Card, CategoryValueText} from '../../../../shared/comopnents';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {CharacterDetailsStackParamList} from '../../CharacterDetails.routes';
 import {DATA} from '../../../../shared/api/mock';
+import {RickAndMortyFooter} from '../../../TabNavigation/components';
 
 type CharacterDetailsRouteProp = RouteProp<
   CharacterDetailsStackParamList,
@@ -41,51 +42,54 @@ const CharacterDetailsScreen = () => {
   }
 
   return (
-    <ScrollView>
-      <Card style={styles.card} contentStyle={styles.content}>
-        <Image
-          source={{uri: character.image}}
-          style={[styles.image, {height: width, width}]}
-        />
-        <CategoryValueText
-          category={'NAME'}
-          value={character.name}
-          valueTextStyle={styles.tile}
-        />
-        <View style={styles.row}>
-          <CategoryValueText
-            category={'STATUS'}
-            value={character.status}
-            style={styles.item}
+    <>
+      <ScrollView>
+        <Card style={styles.card} contentStyle={styles.content}>
+          <Image
+            source={{uri: character.image}}
+            style={[styles.image, {height: width, width}]}
           />
           <CategoryValueText
-            category={'ORIGIN'}
-            value={character.origin.name}
-            style={styles.item}
+            category={'NAME'}
+            value={character.name}
+            valueTextStyle={styles.tile}
           />
-        </View>
-        <View style={styles.row}>
-          <CategoryValueText
-            category={'SPECIES'}
-            value={character.species}
-            style={styles.item}
-          />
-          <CategoryValueText
-            category={'GENDER'}
-            value={character.gender}
-            style={styles.item}
-          />
-        </View>
-        <View style={styles.buttonContainer}>
-          <Button
-            title={'✩ ADD TO LIKED'}
-            onPress={onLikePress}
-            mode={'primary'}
-            style={styles.button}
-          />
-        </View>
-      </Card>
-    </ScrollView>
+          <View style={styles.row}>
+            <CategoryValueText
+              category={'STATUS'}
+              value={character.status}
+              style={styles.item}
+            />
+            <CategoryValueText
+              category={'ORIGIN'}
+              value={character.origin.name}
+              style={styles.item}
+            />
+          </View>
+          <View style={styles.row}>
+            <CategoryValueText
+              category={'SPECIES'}
+              value={character.species}
+              style={styles.item}
+            />
+            <CategoryValueText
+              category={'GENDER'}
+              value={character.gender}
+              style={styles.item}
+            />
+          </View>
+          <View style={styles.buttonContainer}>
+            <Button
+              title={'✩ ADD TO LIKED'}
+              onPress={onLikePress}
+              mode={'primary'}
+              style={styles.button}
+            />
+          </View>
+        </Card>
+      </ScrollView>
+      <RickAndMortyFooter />
+    </>
   );
 };
 
