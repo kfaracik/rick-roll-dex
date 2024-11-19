@@ -1,0 +1,1 @@
+export {RickAndMortyHeader} from './RickAndMortyHeader';
