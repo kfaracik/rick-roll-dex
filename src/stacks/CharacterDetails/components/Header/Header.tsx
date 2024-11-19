@@ -1,7 +1,8 @@
 import {Text} from 'react-native-paper';
 import {useNavigation} from '@react-navigation/native';
-import {TouchableOpacity} from 'react-native';
+import {TouchableOpacity, View} from 'react-native';
 import {styles} from './Header.styled';
+import {RickAndMortyHeader} from '../../../TabNavigation/components';
 
 export const Header = () => {
   const navigation = useNavigation();
@@ -11,8 +12,13 @@ export const Header = () => {
   };
 
   return (
-    <TouchableOpacity onPress={goBack} style={styles.header}>
-      <Text style={styles.headerText}>← Go back to Characters List</Text>
-    </TouchableOpacity>
+    <>
+      <View style={styles.headerContainer}>
+        <RickAndMortyHeader />
+      </View>
+      <TouchableOpacity onPress={goBack} style={styles.header}>
+        <Text style={styles.headerText}>← Go back to Characters List</Text>
+      </TouchableOpacity>
+    </>
   );
 };
