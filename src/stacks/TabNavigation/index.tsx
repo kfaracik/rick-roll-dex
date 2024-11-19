@@ -9,17 +9,20 @@ import {RickAndMortyHeader, RickAndMortyTabBar} from './components';
 const Tab = createBottomTabNavigator();
 
 export const TabNavigationStack = () => {
+  const hideTabBar = false; // TODO: add hiding for details screen
+
   return (
     <Tab.Navigator
-      tabBar={props => <RickAndMortyTabBar {...props} />}
+      tabBar={props => (
+        <RickAndMortyTabBar {...props} hideTabBar={hideTabBar} />
+      )}
       screenOptions={{
         headerStyle: styles.header,
         headerTitle: () => <RickAndMortyHeader />,
         tabBarStyle: styles.tabBar,
         tabBarLabelStyle: styles.tabBarLabel,
         tabBarActiveTintColor: Colors.white,
-        // tabBarInactiveTintColor: Colors.gray,
-        // tabBarIndicatorStyle: styles.tabBarIndicator,
+        tabBarInactiveTintColor: Colors.greyshGreen,
       }}>
       <Tab.Screen
         name="ALL CHARACTERS"
@@ -49,7 +52,7 @@ const styles = StyleSheet.create({
   },
   tabBarLabel: {
     fontSize: 14,
-    fontWeight: '600',
+    fontWeight: '400',
   },
   tabBarIndicator: {
     backgroundColor: Colors.white,
