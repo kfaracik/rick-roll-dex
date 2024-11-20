@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useCallback} from 'react';
 import {View, ActivityIndicator} from 'react-native';
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import {Character} from '../../api';
@@ -62,12 +62,17 @@ export const CharacterList = ({
       </View>
     );
 
+  const keyExtractor = useCallback(
+    (item: any, i: number) => `${i}-${item.id}`,
+    [],
+  );
+
   return (
     <View style={styles.listContainer}>
       <FlashList
         data={data ?? []}
         renderItem={renderItem}
-        keyExtractor={item => item.id.toString()}
+        keyExtractor={keyExtractor}
         onEndReached={handleLoadMore}
         onEndReachedThreshold={0.5}
         estimatedItemSize={ESTIMATED_ELEMENT_SIZE}
