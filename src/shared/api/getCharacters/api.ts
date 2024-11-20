@@ -1,16 +1,16 @@
 import apiClient from '../config';
-import type {Species, Status} from '../types';
+import type {GetCharacters} from '../types';
 
-export const getCharacters = async (
+export const getCharacters = async ({
   page = 1,
-  searchQuery = '',
-  status: Status = null,
-  species: Species = null,
-) => {
+  name = '',
+  status = null,
+  species = null,
+}: GetCharacters) => {
   const response = await apiClient.get('/character', {
     params: {
       page,
-      name: searchQuery,
+      name,
       status,
       species,
     },

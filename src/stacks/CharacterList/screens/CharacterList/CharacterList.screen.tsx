@@ -28,7 +28,11 @@ const CharacterListScreen = () => {
   const listRef = useRef(null);
 
   const {data, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage} =
-    useCharacters(debouncedSearch, statusFilter, speciesFilter);
+    useCharacters({
+      name: debouncedSearch,
+      status: statusFilter,
+      species: speciesFilter,
+    });
 
   const handleLoadMore = () => {
     if (hasNextPage) {
@@ -74,10 +78,7 @@ const CharacterListScreen = () => {
       </View>
     );
 
-  const handleApplyFilters = (
-    status: string | null,
-    species: string | null,
-  ) => {
+  const handleApplyFilters = (status: Status, species: Species) => {
     setStatusFilter(status);
     setSpeciesFilter(species);
   };

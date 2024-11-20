@@ -1,0 +1,1 @@
+export {useSingleCharacter} from './query';
