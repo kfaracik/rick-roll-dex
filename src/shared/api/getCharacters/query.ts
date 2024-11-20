@@ -1,11 +1,14 @@
-import {useQuery} from 'react-query';
+import {useInfiniteQuery} from '@tanstack/react-query';
 import {getCharacters} from './api';
 
-export const useCharacters = (page = 1) => {
-  return useQuery(['characters', page], () => getCharacters(page), {
-    keepPreviousData: true,
-    onError: error => {
-      console.error('Error fetching characters:', error);
+export const useCharacters = (searchQuery: string) => {
+  return useInfiniteQuery({
+    initialPageParam: 0,
+    queryKey: ['characters', searchQuery],
+    queryFn: ({pageParam}) => getCharacters(pageParam, searchQuery),
+    getNextPageParam: lastPage => {
+      return lastPage?.info?.next || undefined;
     },
+    staleTime: 1000 * 60, // 1 minute
   });
 };

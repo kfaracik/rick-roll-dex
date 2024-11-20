@@ -1,6 +1,6 @@
 import React from 'react';
-import {View, StyleSheet, ViewStyle, StyleProp} from 'react-native';
-import {useSafeAreaInsets} from 'react-native-safe-area-context';
+import {StyleSheet, ViewStyle, StyleProp} from 'react-native';
+import {SafeAreaView, useSafeAreaInsets} from 'react-native-safe-area-context';
 import {Colors} from '../../utils';
 
 type ScreenContainerProps = {
@@ -9,12 +9,21 @@ type ScreenContainerProps = {
 };
 
 export const ScreenContainer = ({children, style}: ScreenContainerProps) => {
-  const insets = useSafeAreaInsets(); // TODO: fix
+  const {bottom} = useSafeAreaInsets();
+  const BOTTOM_TAB_BAR_HEIGHT = 210;
+  const paddingBottom = BOTTOM_TAB_BAR_HEIGHT + bottom;
 
   return (
-    <View style={[styles.container, {paddingBottom: insets.bottom}, style]}>
+    <SafeAreaView
+      style={[
+        styles.container,
+        {
+          paddingBottom: paddingBottom,
+        },
+        style,
+      ]}>
       {children}
-    </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react';
+import React, {useRef, useState} from 'react';
 import {
   View,
   Text,
@@ -10,41 +10,34 @@ import {styles} from './CharacterList.styled';
 import {useNavigation} from '@react-navigation/native';
 import {CharacterItem} from '../../components';
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
-import {Character, useCharacters} from '../../../../shared/api';
+import {Character} from '../../../../shared/api';
+import {MainStackNavigationProp} from '../../../Main/Main.routes';
+import {useDebounce} from '../../../../shared/hooks';
+import {useCharacters} from '../../../../shared/api';
 import {
+  ScreenContainer,
+  Input,
   Button,
   Card,
-  Input,
-  ScreenContainer,
 } from '../../../../shared/comopnents';
-import {DATA} from '../../../../shared/api/mock';
-import {MainStackNavigationProp} from '../../../Main/Main.routes';
 
 const ESTIMATED_ELEMENT_HEIGHT = 224;
 
 const CharacterListScreen = () => {
   const {navigate} = useNavigation<MainStackNavigationProp>();
-
   const [filterOptionsExpanded, setFilterOptionsExpanded] = useState(false);
-  const [page, setPage] = useState(1);
-  const [loadingMore, setLoadingMore] = useState(false);
   const [inputValue, setInputValue] = useState('');
-  const onClearInputPress = () => setInputValue('');
+  const debouncedSearch = useDebounce(inputValue, 300);
+  const listRef = useRef(null);
 
-  const {data, isLoading} = useCharacters(page);
+  const {data, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage} =
+    useCharacters(debouncedSearch);
 
   const handleLoadMore = () => {
-    if (!loadingMore && data?.info?.next) {
-      setLoadingMore(true);
-      setPage(prevPage => prevPage + 1);
+    if (hasNextPage) {
+      void fetchNextPage();
     }
   };
-
-  useEffect(() => {
-    if (data && data.results) {
-      setLoadingMore(false);
-    }
-  }, [data]);
 
   const renderItem = ({item}: ListRenderItemInfo<Character>) => {
     const onCharacterPress = () => {
@@ -73,17 +66,20 @@ const CharacterListScreen = () => {
   const itemSeparator = () => <View style={styles.separator} />;
 
   const footerComponent = () =>
-    loadingMore || isLoading ? (
+    isFetchingNextPage ? (
       <ActivityIndicator size="large" />
     ) : (
       <View style={styles.listFooter} />
     );
 
-  const emptyComponent = () => (
-    <View>
-      <Text>No data</Text>
-    </View>
-  );
+  const emptyComponent = () =>
+    isLoading && !isFetchingNextPage ? (
+      <ActivityIndicator size="large" />
+    ) : (
+      <View>
+        <Text>No characters found</Text>
+      </View>
+    );
 
   return (
     <ScreenContainer>
@@ -92,7 +88,12 @@ const CharacterListScreen = () => {
         style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.title}>Characters</Text>
-          <Input hint="Search the characters" clearInput={onClearInputPress} />
+          <Input
+            hint="Search the characters"
+            value={inputValue}
+            onChangeText={(text: string) => setInputValue(text)}
+            clearInput={() => setInputValue('')}
+          />
           <Button title={'FILTER'} onPress={onFilterPress} mode={'primary'} />
           {filterOptionsExpanded ? (
             <Card>
@@ -102,7 +103,8 @@ const CharacterListScreen = () => {
         </View>
         <View style={styles.listContainer}>
           <FlashList
-            data={DATA} // TODO: replace with data={data?.results}
+            ref={listRef}
+            data={data?.pages.flatMap(page => page.results) ?? []}
             renderItem={renderItem}
             keyExtractor={item => item.id.toString()}
             onEndReached={handleLoadMore}
