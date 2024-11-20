@@ -2,6 +2,9 @@ import {StyleSheet} from 'react-native';
 import {Colors} from '../../../../shared/utils';
 
 export const styles = StyleSheet.create({
+  cardContent: {
+    flexDirection: 'row',
+  },
   image: {
     borderWidth: 1,
     borderColor: Colors.primary,

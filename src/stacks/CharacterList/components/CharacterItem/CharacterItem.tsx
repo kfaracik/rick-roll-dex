@@ -27,7 +27,7 @@ export const CharacterItem = ({
   };
 
   return (
-    <Card onPress={onPress}>
+    <Card onPress={onPress} contentStyle={styles.cardContent}>
       <View style={styles.textContainer}>
         <CategoryValueText category="NAME" value={name} />
         <CategoryValueText category="STATUS" value={status} />

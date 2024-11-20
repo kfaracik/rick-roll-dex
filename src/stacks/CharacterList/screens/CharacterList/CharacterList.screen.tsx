@@ -8,24 +8,18 @@ import {
 } from 'react-native';
 import {styles} from './CharacterList.styled';
 import {useNavigation} from '@react-navigation/native';
-import {CharacterItem} from '../../components';
+import {CharacterItem, Filter} from '../../components';
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
 import {Character} from '../../../../shared/api';
 import {MainStackNavigationProp} from '../../../Main/Main.routes';
 import {useDebounce} from '../../../../shared/hooks';
 import {useCharacters} from '../../../../shared/api';
-import {
-  ScreenContainer,
-  Input,
-  Button,
-  Card,
-} from '../../../../shared/comopnents';
+import {ScreenContainer, Input} from '../../../../shared/comopnents';
 
 const ESTIMATED_ELEMENT_HEIGHT = 224;
 
 const CharacterListScreen = () => {
   const {navigate} = useNavigation<MainStackNavigationProp>();
-  const [filterOptionsExpanded, setFilterOptionsExpanded] = useState(false);
   const [inputValue, setInputValue] = useState('');
   const debouncedSearch = useDebounce(inputValue, 300);
   const listRef = useRef(null);
@@ -59,10 +53,6 @@ const CharacterListScreen = () => {
     );
   };
 
-  const onFilterPress = () => {
-    setFilterOptionsExpanded(prevState => !prevState);
-  };
-
   const itemSeparator = () => <View style={styles.separator} />;
 
   const footerComponent = () =>
@@ -76,10 +66,17 @@ const CharacterListScreen = () => {
     isLoading && !isFetchingNextPage ? (
       <ActivityIndicator size="large" />
     ) : (
-      <View>
+      <View style={styles.noDataContainer}>
         <Text>No characters found</Text>
       </View>
     );
+
+  const handleApplyFilters = (
+    status: string | null, // TODO: create type
+    species: string | null, // TODO: create type
+  ) => {
+    // TODO: implement
+  };
 
   return (
     <ScreenContainer>
@@ -94,12 +91,7 @@ const CharacterListScreen = () => {
             onChangeText={(text: string) => setInputValue(text)}
             clearInput={() => setInputValue('')}
           />
-          <Button title={'FILTER'} onPress={onFilterPress} mode={'primary'} />
-          {filterOptionsExpanded ? (
-            <Card>
-              <Text>TODO: Implement filters</Text>
-            </Card>
-          ) : null}
+          <Filter onApplyFilters={handleApplyFilters} />
         </View>
         <View style={styles.listContainer}>
           <FlashList

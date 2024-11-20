@@ -20,7 +20,6 @@ export const styles = StyleSheet.create({
     ],
   },
   content: {
-    flexDirection: 'row',
     alignItems: 'flex-start',
     gap: 20,
     paddingHorizontal: 0,
