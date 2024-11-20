@@ -65,10 +65,7 @@ export const CharacterList = ({
   return (
     <View style={styles.listContainer}>
       <FlashList
-        data={
-          data?.pages.flatMap((page: {results: Character[]}) => page.results) ??
-          []
-        }
+        data={data ?? []}
         renderItem={renderItem}
         keyExtractor={item => item.id.toString()}
         onEndReached={handleLoadMore}

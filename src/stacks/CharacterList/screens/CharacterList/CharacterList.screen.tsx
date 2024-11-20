@@ -3,7 +3,7 @@ import {KeyboardAvoidingView, Platform} from 'react-native';
 import {styles} from './CharacterList.styled';
 import {useNavigation} from '@react-navigation/native';
 import {useDebounce} from '../../../../shared/hooks';
-import {useCharacters} from '../../../../shared/api';
+import {Character, useCharacters} from '../../../../shared/api';
 import {
   ScreenContainer,
   CharacterList,
@@ -55,7 +55,9 @@ const CharacterListScreen = () => {
           clearInput={handleClearInput}
         />
         <CharacterList
-          data={data}
+          data={data?.pages.flatMap(
+            (page: {results: Character[]}) => page.results,
+          )}
           isLoading={isLoading}
           isFetchingNextPage={isFetchingNextPage}
           hasNextPage={hasNextPage}
