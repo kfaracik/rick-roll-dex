@@ -34,4 +34,7 @@ export const styles = StyleSheet.create({
   listFooter: {
     height: 32,
   },
+  noDataContainer: {
+    margin: 16,
+  }
 });
