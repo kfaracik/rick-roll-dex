@@ -6,6 +6,7 @@ import {Button} from '../Button';
 import {Colors} from '../../utils';
 import {Card} from '../Card';
 import {CheckboxItem} from '../CheckboxItem';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 type FilterProps = {
   onApplyFilters: (status: Status, species: Species) => void;
@@ -41,13 +42,16 @@ export const Filter = ({onApplyFilters}: FilterProps) => {
   return (
     <ScrollView style={styles.container}>
       <Button
-        title="FILTER"
+        title="FILTER "
         onPress={onFilterButtonPress}
         mode="primary"
-        iconName={filterOptionsExpanded ? 'up' : 'down'}
-        iconColor={Colors.white}
-        style={styles.filterButton}
-      />
+        style={styles.filterButton}>
+        <Icon
+          name={filterOptionsExpanded ? 'up' : 'down'}
+          size={10}
+          color={Colors.white}
+        />
+      </Button>
       {filterOptionsExpanded && (
         <Card style={styles.card}>
           <View>

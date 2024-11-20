@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Text, Button as ButtonRNP} from 'react-native-paper';
 import {
   GestureResponderEvent,
@@ -16,6 +16,7 @@ type ButtonProps = {
   title: string;
   onPress: (event?: GestureResponderEvent) => void;
   mode: ButtonMode;
+  children?: ReactNode;
   iconName?: string;
   iconColor?: ColorValue;
   style?: StyleProp<ViewStyle>;
@@ -24,6 +25,7 @@ type ButtonProps = {
 export const Button = ({
   onPress,
   title,
+  children,
   mode,
   iconName,
   iconColor = Colors.primary,
@@ -55,7 +57,8 @@ export const Button = ({
         rippleColor={buttonStyle.rippleColor}>
         <Text
           style={mode === 'primary' ? styles.textPrimary : styles.textWhite}>
-          {title}
+          {title} 
+           {children}
         </Text>
       </ButtonRNP>
     </>
