@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {ReactNode} from 'react';
 import {Text, Button as ButtonRNP} from 'react-native-paper';
 import {
   GestureResponderEvent,
@@ -16,6 +16,7 @@ type ButtonProps = {
   title: string;
   onPress: (event?: GestureResponderEvent) => void;
   mode: ButtonMode;
+  children?: ReactNode;
   iconName?: string;
   iconColor?: ColorValue;
   style?: StyleProp<ViewStyle>;
@@ -24,6 +25,7 @@ type ButtonProps = {
 export const Button = ({
   onPress,
   title,
+  children,
   mode,
   iconName,
   iconColor = Colors.primary,
@@ -41,23 +43,22 @@ export const Button = ({
         };
 
   return (
-    <>
-      <ButtonRNP
-        onPress={onPress}
-        icon={
-          iconName
-            ? () => <Icon name={iconName} size={16} color={iconColor} />
-            : undefined
-        }
-        mode="contained"
-        style={[styles.button, buttonStyle, style]}
-        uppercase={true}
-        rippleColor={buttonStyle.rippleColor}>
-        <Text
-          style={mode === 'primary' ? styles.textPrimary : styles.textWhite}>
-          {title}
-        </Text>
-      </ButtonRNP>
-    </>
+    <ButtonRNP
+      onPress={onPress}
+      icon={
+        iconName
+          ? () => <Icon name={iconName} size={16} color={iconColor} />
+          : undefined
+      }
+      mode="contained"
+      style={[styles.button, buttonStyle, style]}
+      uppercase={true}
+      contentStyle={styles.buttonContent}
+      rippleColor={buttonStyle.rippleColor}>
+      <Text style={mode === 'primary' ? styles.textPrimary : styles.textWhite}>
+        {title}
+        {children}
+      </Text>
+    </ButtonRNP>
   );
 };

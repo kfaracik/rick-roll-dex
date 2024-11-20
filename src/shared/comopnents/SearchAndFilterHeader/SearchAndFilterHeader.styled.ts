@@ -2,8 +2,13 @@ import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
   headerContainer: {
-    margin: 16,
+    marginBottom: 16,
     gap: 16,
+  },
+  marginContainer: {
+    gap: 16,
+    marginTop: 16,
+    marginHorizontal: 16,
   },
   title: {
     fontSize: 36,

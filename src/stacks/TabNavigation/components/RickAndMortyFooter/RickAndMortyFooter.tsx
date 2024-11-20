@@ -1,6 +1,6 @@
 import {View, Image} from 'react-native';
 import React from 'react';
-import rickAndMorty from '../../../../shared/assets/images/rickAndMorty/rickAndMorty@3.webp'; // TODO: automatically select quality
+import rickAndMorty from '../../../../shared/assets/images/rickAndMortyBig/rickAndMortyBig.webp'; // TODO: automatically select quality
 import {styles} from './RickAndMortyFooter.styles';
 
 export const RickAndMortyFooter = () => {

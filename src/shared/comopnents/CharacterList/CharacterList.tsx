@@ -11,9 +11,9 @@ const ESTIMATED_ELEMENT_SIZE = 224;
 type CharacterListProps = {
   data: any;
   isLoading: boolean;
-  isFetchingNextPage: boolean;
-  hasNextPage: boolean;
-  fetchNextPage: () => void;
+  isFetchingNextPage?: boolean;
+  hasNextPage?: boolean;
+  fetchNextPage?: () => void;
   onCharacterPress: (id: number) => void;
 };
 
@@ -26,7 +26,7 @@ export const CharacterList = ({
   onCharacterPress,
 }: CharacterListProps) => {
   const handleLoadMore = () => {
-    if (hasNextPage) {
+    if (hasNextPage && fetchNextPage) {
       fetchNextPage();
     }
   };

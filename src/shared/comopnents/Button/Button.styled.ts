@@ -7,7 +7,10 @@ export const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: Colors.primary,
     alignSelf: 'flex-start',
-    // height: 34, // TODO: fix
+    height: 34,
+  },
+  buttonContent: {
+    margin: -6,
   },
   textPrimary: {
     color: Colors.white,

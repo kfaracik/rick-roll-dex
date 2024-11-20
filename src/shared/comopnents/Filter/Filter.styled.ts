@@ -1,9 +1,15 @@
 import {StyleSheet} from 'react-native';
 
 export const styles = StyleSheet.create({
+  container: {
+    marginBottom: 16,
+  },
   card: {
-    marginBottom: 32,
-    marginTop: 16,
+    marginBottom: 16,
+    marginTop: 8,
+  },
+  filterButton: {
+    marginHorizontal: 16,
   },
   buttonsContainer: {
     flexDirection: 'row',

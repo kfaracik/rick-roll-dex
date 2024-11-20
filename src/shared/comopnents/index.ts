@@ -4,3 +4,4 @@ export {Card} from './Card';
 export {ScreenContainer} from './ScreenContainer';
 export {CharacterList} from './CharacterList';
 export {SearchAndFilterHeader} from './SearchAndFilterHeader';
+export {AnimatedViewBasic} from './AnimatedViewBasic';
