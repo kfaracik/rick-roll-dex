@@ -1,0 +1,1 @@
+export {useMultipleCharacters} from './query';
