@@ -12,7 +12,11 @@ const apiClient = axios.create({
 apiClient.interceptors.response.use(
   response => response,
   error => {
-    console.error('API Error:', error.response || error.message);
+    if (error.code === 'ERR_BAD_REQUEST') {
+      console.log('TODO: 404');
+    } else {
+      console.error('API Error:', error.code);
+    }
     return Promise.reject(error);
   },
 );
