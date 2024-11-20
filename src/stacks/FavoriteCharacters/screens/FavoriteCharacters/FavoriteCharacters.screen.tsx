@@ -71,9 +71,6 @@ const FavoriteCharactersScreen = () => {
         <CharacterList
           data={filteredCharacters}
           isLoading={isLoading}
-          isFetchingNextPage={false} // TODO: remove
-          hasNextPage={false} // TODO: remove
-          fetchNextPage={() => {}} // TODO: remove
           onCharacterPress={handleCharacterPress}
         />
       </KeyboardAvoidingView>
