@@ -20,13 +20,15 @@ export const SearchAndFilterHeader = ({
 }: SearchAndFilterHeaderProps) => {
   return (
     <View style={styles.headerContainer}>
-      <Text style={styles.title}>Characters</Text>
-      <Input
-        hint="Search the characters"
-        value={inputValue}
-        onChangeText={setInputValue}
-        clearInput={clearInput}
-      />
+      <View style={styles.marginContainer}>
+        <Text style={styles.title}>Characters</Text>
+        <Input
+          hint="Search the characters"
+          value={inputValue}
+          onChangeText={setInputValue}
+          clearInput={clearInput}
+        />
+      </View>
       <Filter onApplyFilters={handleApplyFilters} />
     </View>
   );

@@ -39,13 +39,14 @@ export const Filter = ({onApplyFilters}: FilterProps) => {
   };
 
   return (
-    <ScrollView>
+    <ScrollView style={styles.container}>
       <Button
         title="FILTER"
         onPress={onFilterButtonPress}
         mode="primary"
         iconName={filterOptionsExpanded ? 'up' : 'down'}
         iconColor={Colors.white}
+        style={styles.filterButton}
       />
       {filterOptionsExpanded && (
         <Card style={styles.card}>
