@@ -1,6 +1,6 @@
-export type Status = string | null;
+export type Status = string | null | undefined;
 
-export type Species = Character['species'] | null;
+export type Species = Character['species'] | null | undefined;
 
 export type Character = {
   id: number;
@@ -15,4 +15,16 @@ export type Character = {
   episode: string[];
   url: string;
   created: string;
+};
+
+export type GetCharacters = {
+  page?: number;
+  name?: string;
+  search?: string;
+  status?: Status;
+  species?: Species;
+};
+
+export type GetSingleCharacter = {
+  id: number;
 };

@@ -11,9 +11,10 @@ import {styles} from './CharacterDetails.styled';
 import {Button, Card, CategoryValueText} from '../../../../shared/comopnents';
 import {RouteProp, useRoute} from '@react-navigation/native';
 import {CharacterDetailsStackParamList} from '../../CharacterDetails.routes';
-import {DATA} from '../../../../shared/api/mock';
 import {RickAndMortyFooter} from '../../../TabNavigation/components';
 import {Colors} from '../../../../shared/utils';
+import {useSingleCharacter} from '../../../../shared/api';
+import {ActivityIndicator} from 'react-native-paper';
 
 type CharacterDetailsRouteProp = RouteProp<
   CharacterDetailsStackParamList,
@@ -32,7 +33,15 @@ const CharacterDetailsScreen = () => {
     Alert.alert('TODO: implement');
   };
 
-  const character = DATA.find(c => c.id === id); // TODO: mock add api
+  const {data: character, isLoading} = useSingleCharacter({id});
+
+  if (isLoading) {
+    return (
+      <Card style={styles.card} contentStyle={styles.content}>
+        <ActivityIndicator size={'large'} />
+      </Card>
+    );
+  }
 
   if (!character) {
     return (

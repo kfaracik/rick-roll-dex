@@ -1,17 +1,22 @@
 import {useInfiniteQuery} from '@tanstack/react-query';
 import {getCharacters} from './api';
-import type {Species, Status} from '../types';
+import type {GetCharacters} from '../types';
 
-export const useCharacters = (
-  searchQuery: string,
-  status: Status,
-  species: Species,
-) => {
+export const useCharacters = ({
+  name = '',
+  status = null,
+  species = null,
+}: Partial<GetCharacters>) => {
   return useInfiniteQuery({
     initialPageParam: 0,
-    queryKey: ['characters', searchQuery, status, species],
-    queryFn: ({pageParam}) =>
-      getCharacters(pageParam, searchQuery, status, species),
+    queryKey: ['characters', name, status, species],
+    queryFn: ({pageParam: page}) =>
+      getCharacters({
+        page,
+        name,
+        status,
+        species,
+      }),
     getNextPageParam: lastPage => {
       return lastPage?.info?.next || undefined;
     },
