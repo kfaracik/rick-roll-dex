@@ -61,6 +61,7 @@ const CharacterListScreen = () => {
         status={item.status}
         species={item.species}
         image={item.image}
+        liked={false}
       />
     );
   };
