@@ -57,11 +57,11 @@ const CharacterListScreen = () => {
     return (
       <CharacterItem
         onPress={onCharacterPress}
-        liked={false}
         name={item.name}
         status={item.status}
         species={item.species}
         image={item.image}
+        liked={false}
       />
     );
   };
@@ -92,12 +92,7 @@ const CharacterListScreen = () => {
         style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.title}>Characters</Text>
-          <Input
-            value={inputValue}
-            hint="Search the characters"
-            onChangeText={newText => setInputValue(newText)}
-            clearInput={onClearInputPress}
-          />
+          <Input hint="Search the characters" clearInput={onClearInputPress} />
           <Button title={'FILTER'} onPress={onFilterPress} mode={'primary'} />
           {filterOptionsExpanded ? (
             <Card>
