@@ -7,6 +7,7 @@ import {Colors} from '../../utils';
 import {Card} from '../Card';
 import {CheckboxItem} from '../CheckboxItem';
 import Icon from 'react-native-vector-icons/AntDesign';
+import {AnimatedChevron} from '../AnimatedChevron';
 
 type FilterProps = {
   onApplyFilters: (status: Status, species: Species) => void;
@@ -46,10 +47,9 @@ export const Filter = ({onApplyFilters}: FilterProps) => {
         onPress={onFilterButtonPress}
         mode="primary"
         style={styles.filterButton}>
-        <Icon
-          name={filterOptionsExpanded ? 'up' : 'down'}
-          size={10}
-          color={Colors.white}
+        <AnimatedChevron
+          isOpen={filterOptionsExpanded}
+          accessibilityLabel={'show filters'}
         />
       </Button>
       {filterOptionsExpanded && (
