@@ -3,9 +3,14 @@ import {Colors} from '../../utils/colors';
 
 export const styles = StyleSheet.create({
   outline: {
-    // height: 36, // TODO: fix
     backgroundColor: Colors.white,
     borderWidth: 1,
     borderRadius: 24,
+  },
+  input: {
+    height: 36,
+    fontSize: 16,
+    paddingVertical: 0,
+    paddingHorizontal: 8,
   },
 });

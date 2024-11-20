@@ -13,6 +13,7 @@ import {RouteProp, useRoute} from '@react-navigation/native';
 import {CharacterDetailsStackParamList} from '../../CharacterDetails.routes';
 import {DATA} from '../../../../shared/api/mock';
 import {RickAndMortyFooter} from '../../../TabNavigation/components';
+import {Colors} from '../../../../shared/utils';
 
 type CharacterDetailsRouteProp = RouteProp<
   CharacterDetailsStackParamList,
@@ -80,8 +81,10 @@ const CharacterDetailsScreen = () => {
           </View>
           <View style={styles.buttonContainer}>
             <Button
-              title={'✩ ADD TO LIKED'}
+              title={'ADD TO LIKED'}
               onPress={onLikePress}
+              iconName={'staro'}
+              iconColor={Colors.white}
               mode={'primary'}
               style={styles.button}
             />

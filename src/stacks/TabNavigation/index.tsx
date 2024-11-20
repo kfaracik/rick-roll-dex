@@ -5,6 +5,8 @@ import {Colors} from '../../shared/utils';
 import {RickAndMortyHeader, RickAndMortyTabBar} from './components';
 import {CharacterListScreen} from '../CharacterList/screens';
 import {FavoriteCharactersScreen} from '../FavoriteCharacters/screens';
+import Icon from 'react-native-vector-icons/AntDesign';
+import IconFontAwesome from 'react-native-vector-icons/FontAwesome';
 
 const Tab = createBottomTabNavigator();
 
@@ -23,12 +25,22 @@ export const TabNavigationStack = () => {
       <Tab.Screen
         name="ALL CHARACTERS"
         component={CharacterListScreen}
-        options={{headerShown: true}}
+        options={{
+          headerShown: true,
+          tabBarIcon: ({color}) => (
+            <IconFontAwesome name={'user'} size={16} color={color} />
+          ),
+        }}
       />
       <Tab.Screen
         name="LIKED CHARACTERS"
         component={FavoriteCharactersScreen}
-        options={{headerShown: true}}
+        options={{
+          headerShown: true,
+          tabBarIcon: ({color}) => (
+            <Icon name={'star'} size={16} color={color} />
+          ),
+        }}
       />
     </Tab.Navigator>
   );

@@ -3,17 +3,19 @@ import {Alert, GestureResponderEvent, Image, View} from 'react-native';
 import {styles} from './CharacterItem.styled';
 import {CategoryValueText, Button, Card} from '../../../../shared/comopnents';
 import {Character} from '../../../../shared/api';
+import {Colors} from '../../../../shared/utils';
 
-// TODO: create and use API type
 type CharacterItemProps = Pick<
   Character,
   'name' | 'status' | 'species' | 'image'
 > & {
+  liked: boolean;
   onPress: () => void;
 };
 
 export const CharacterItem = ({
   onPress,
+  liked,
   name,
   status,
   species,
@@ -36,7 +38,8 @@ export const CharacterItem = ({
           title="Like"
           onPress={onLikePress}
           mode="white"
-          showStarIcon
+          iconName={liked ? 'star' : 'staro'}
+          iconColor={liked ? Colors.accent : Colors.primary}
           style={styles.likeButton}
         />
         <Image source={{uri: image}} style={styles.image} />
