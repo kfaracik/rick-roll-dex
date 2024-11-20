@@ -43,24 +43,22 @@ export const Button = ({
         };
 
   return (
-    <>
-      <ButtonRNP
-        onPress={onPress}
-        icon={
-          iconName
-            ? () => <Icon name={iconName} size={16} color={iconColor} />
-            : undefined
-        }
-        mode="contained"
-        style={[styles.button, buttonStyle, style]}
-        uppercase={true}
-        rippleColor={buttonStyle.rippleColor}>
-        <Text
-          style={mode === 'primary' ? styles.textPrimary : styles.textWhite}>
-          {title} 
-           {children}
-        </Text>
-      </ButtonRNP>
-    </>
+    <ButtonRNP
+      onPress={onPress}
+      icon={
+        iconName
+          ? () => <Icon name={iconName} size={16} color={iconColor} />
+          : undefined
+      }
+      mode="contained"
+      style={[styles.button, buttonStyle, style]}
+      uppercase={true}
+      contentStyle={styles.buttonContent}
+      rippleColor={buttonStyle.rippleColor}>
+      <Text style={mode === 'primary' ? styles.textPrimary : styles.textWhite}>
+        {title}
+        {children}
+      </Text>
+    </ButtonRNP>
   );
 };
