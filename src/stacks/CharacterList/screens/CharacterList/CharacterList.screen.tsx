@@ -18,7 +18,7 @@ import {
   ScreenContainer,
 } from '../../../../shared/comopnents';
 import {DATA} from '../../../../shared/api/mock';
-import { MainStackNavigationProp } from '../../../Main/Main.routes';
+import {MainStackNavigationProp} from '../../../Main/Main.routes';
 
 const ESTIMATED_ELEMENT_HEIGHT = 224;
 
@@ -57,6 +57,7 @@ const CharacterListScreen = () => {
     return (
       <CharacterItem
         onPress={onCharacterPress}
+        liked={false}
         name={item.name}
         status={item.status}
         species={item.species}
@@ -91,7 +92,12 @@ const CharacterListScreen = () => {
         style={styles.container}>
         <View style={styles.headerContainer}>
           <Text style={styles.title}>Characters</Text>
-          <Input hint="Search the characters" clearInput={onClearInputPress} />
+          <Input
+            value={inputValue}
+            hint="Search the characters"
+            onChangeText={newText => setInputValue(newText)}
+            clearInput={onClearInputPress}
+          />
           <Button title={'FILTER'} onPress={onFilterPress} mode={'primary'} />
           {filterOptionsExpanded ? (
             <Card>

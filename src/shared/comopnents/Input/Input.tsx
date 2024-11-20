@@ -26,6 +26,7 @@ export const Input = ({hint, clearInput, ...rest}: InputProps) => {
       cursorColor={Colors.primary}
       autoCorrect={false}
       inputMode="search"
+      style={styles.input}
       left={
         <TextInput.Icon
           disabled
