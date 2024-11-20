@@ -21,6 +21,7 @@ export const TabNavigationStack = () => {
         tabBarLabelStyle: styles.tabBarLabel,
         tabBarActiveTintColor: Colors.white,
         tabBarInactiveTintColor: Colors.greyshGreen,
+        animation: 'shift',
       }}>
       <Tab.Screen
         name="ALL CHARACTERS"
