@@ -28,3 +28,7 @@ export type GetCharacters = {
 export type GetSingleCharacter = {
   id: number;
 };
+
+export type GetMultipleCharacters = {
+  ids: number[];
+};
