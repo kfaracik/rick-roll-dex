@@ -4,6 +4,7 @@ import {BottomTabBar, BottomTabBarProps} from '@react-navigation/bottom-tabs';
 import {Colors} from '../../../../shared/utils';
 import {styles} from './RickAndMortyTabBar.styled';
 import {RickAndMortyFooter} from '../RickAndMortyFooter';
+import {useKeyboard} from '../../../../shared/hooks';
 
 export const RickAndMortyTabBar = (
   props: React.JSX.IntrinsicAttributes &
@@ -12,9 +13,10 @@ export const RickAndMortyTabBar = (
     },
 ) => {
   const {state} = props;
+  const {keyboardShown} = useKeyboard();
 
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, {height: keyboardShown ? 0 : 210}]}>
       <View>
         <BottomTabBar {...props} />
         <View style={styles.tabBarContainer}>
