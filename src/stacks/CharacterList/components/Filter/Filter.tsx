@@ -4,15 +4,16 @@ import {Button, Card} from '../../../../shared/comopnents';
 import {Colors} from '../../../../shared/utils';
 import {styles} from './Filter.styled';
 import {CheckboxItem} from '../CheckboxItem';
+import {Species, Status} from '../../../../shared/api';
 
 type FilterProps = {
-  onApplyFilters: (status: string | null, species: string | null) => void;
+  onApplyFilters: (status: Status, species: Species) => void;
 };
 
 export const Filter = ({onApplyFilters}: FilterProps) => {
   const [filterOptionsExpanded, setFilterOptionsExpanded] = useState(false);
-  const [status, setStatus] = useState<string | null>(null);
-  const [species, setSpecies] = useState<string | null>(null);
+  const [status, setStatus] = useState<Status>(null);
+  const [species, setSpecies] = useState<Species>(null);
 
   const handleStatusChange = (value: string) => {
     setStatus(value === status ? null : value);

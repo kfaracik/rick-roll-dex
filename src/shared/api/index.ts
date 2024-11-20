@@ -1,2 +1,2 @@
-export {type Character} from './types';
+export type {Character, Status, Species} from './types';
 export {useCharacters} from './getCharacters';

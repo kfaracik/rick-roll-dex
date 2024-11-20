@@ -10,7 +10,7 @@ import {styles} from './CharacterList.styled';
 import {useNavigation} from '@react-navigation/native';
 import {CharacterItem, Filter} from '../../components';
 import {FlashList, ListRenderItemInfo} from '@shopify/flash-list';
-import {Character} from '../../../../shared/api';
+import type {Character, Species, Status} from '../../../../shared/api';
 import {MainStackNavigationProp} from '../../../Main/Main.routes';
 import {useDebounce} from '../../../../shared/hooks';
 import {useCharacters} from '../../../../shared/api';
@@ -21,11 +21,14 @@ const ESTIMATED_ELEMENT_HEIGHT = 224;
 const CharacterListScreen = () => {
   const {navigate} = useNavigation<MainStackNavigationProp>();
   const [inputValue, setInputValue] = useState('');
+  const [statusFilter, setStatusFilter] = useState<Status>(null);
+  const [speciesFilter, setSpeciesFilter] = useState<Species>(null);
+
   const debouncedSearch = useDebounce(inputValue, 300);
   const listRef = useRef(null);
 
   const {data, isLoading, isFetchingNextPage, hasNextPage, fetchNextPage} =
-    useCharacters(debouncedSearch);
+    useCharacters(debouncedSearch, statusFilter, speciesFilter);
 
   const handleLoadMore = () => {
     if (hasNextPage) {
@@ -72,10 +75,11 @@ const CharacterListScreen = () => {
     );
 
   const handleApplyFilters = (
-    status: string | null, // TODO: create type
-    species: string | null, // TODO: create type
+    status: string | null,
+    species: string | null,
   ) => {
-    // TODO: implement
+    setStatusFilter(status);
+    setSpeciesFilter(species);
   };
 
   return (

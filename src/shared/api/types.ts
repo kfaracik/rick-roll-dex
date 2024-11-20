@@ -1,3 +1,7 @@
+export type Status = string | null;
+
+export type Species = Character['species'] | null;
+
 export type Character = {
   id: number;
   name: string;
