@@ -1,29 +1,36 @@
 import React from 'react';
-import {Alert, GestureResponderEvent, Image, View} from 'react-native';
+import {GestureResponderEvent, Image, View} from 'react-native';
+import {useAtom} from 'jotai';
 import {styles} from './CharacterItem.styled';
-import {CategoryValueText, Button, Card} from '../../../../shared/comopnents';
-import {Character} from '../../../../shared/api';
-import {Colors} from '../../../../shared/utils';
+import {CategoryValueText, Button, Card} from '..';
+import {Character} from '../../api';
+import {Colors} from '../../utils';
+import {favoriteCharactersAtom} from '../../store/favoriteCharactersStore';
 
 type CharacterItemProps = Pick<
   Character,
-  'name' | 'status' | 'species' | 'image'
+  'id' | 'name' | 'status' | 'species' | 'image'
 > & {
-  liked: boolean;
   onPress: () => void;
 };
 
 export const CharacterItem = ({
-  onPress,
-  liked,
+  id,
   name,
   status,
   species,
   image,
+  onPress,
 }: CharacterItemProps) => {
+  const [favorites, setFavorites] = useAtom(favoriteCharactersAtom);
+
+  const liked = favorites.includes(id);
+
   const onLikePress = (event: GestureResponderEvent | undefined) => {
     event?.stopPropagation();
-    Alert.alert('TODO implement like logic');
+    setFavorites(prev =>
+      liked ? prev.filter(favId => favId !== id) : [...prev, id],
+    );
   };
 
   return (
@@ -35,7 +42,7 @@ export const CharacterItem = ({
       </View>
       <View>
         <Button
-          title="Like"
+          title={'Like'}
           onPress={onLikePress}
           mode="white"
           iconName={liked ? 'star' : 'staro'}

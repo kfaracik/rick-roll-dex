@@ -1,10 +1,11 @@
 import React, {useState} from 'react';
 import {ScrollView, View, Text} from 'react-native';
-import {Button, Card} from '../../../../shared/comopnents';
-import {Colors} from '../../../../shared/utils';
 import {styles} from './Filter.styled';
+import {Species, Status} from '../../../shared/api';
+import {Button} from '../Button';
+import {Colors} from '../../utils';
+import {Card} from '../Card';
 import {CheckboxItem} from '../CheckboxItem';
-import {Species, Status} from '../../../../shared/api';
 
 type FilterProps = {
   onApplyFilters: (status: Status, species: Species) => void;
@@ -15,11 +16,11 @@ export const Filter = ({onApplyFilters}: FilterProps) => {
   const [status, setStatus] = useState<Status>(null);
   const [species, setSpecies] = useState<Species>(null);
 
-  const handleStatusChange = (value: string) => {
+  const handleStatusChange = (value: Status) => {
     setStatus(value === status ? null : value);
   };
 
-  const handleSpeciesChange = (value: string) => {
+  const handleSpeciesChange = (value: Species) => {
     setSpecies(value === species ? null : value);
   };
 

@@ -1,11 +1,12 @@
 import React from 'react';
 import {Checkbox} from 'react-native-paper';
-import {Colors} from '../../../../shared/utils';
+import {Colors} from '../../utils';
+import { Species, Status } from '../../api';
 
 type CheckboxItemProps = {
   label: string;
   value: string;
-  status: string | null;
+  status: Status | Species | null;
   onPress: (value: string) => void;
 };
 
