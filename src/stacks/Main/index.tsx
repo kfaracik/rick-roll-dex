@@ -1,8 +1,9 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {CharacterDetailsStack} from '../CharacterDetails';
 import {TabNavigationStack} from '../TabNavigation';
 import {MainStackRoutes} from './Main.routes';
+import {CharacterDetailsScreen} from '../CharacterDetails/screens';
+import {Header} from '../CharacterDetails/components';
 
 const Tab = createNativeStackNavigator();
 
@@ -15,9 +16,11 @@ export const MainStack = () => {
         options={{headerShown: false}}
       />
       <Tab.Screen
-        name={MainStackRoutes.CharacterDetailsStack}
-        component={CharacterDetailsStack}
-        options={{headerShown: false}}
+        name={MainStackRoutes.CharacterDetailsScreen}
+        component={CharacterDetailsScreen}
+        options={{
+          header: () => <Header />,
+        }}
       />
     </Tab.Navigator>
   );
