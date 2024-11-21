@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should generate snapshot 1`] = `
+<Image
+  resizeMode="contain"
+  source={
+    {
+      "testUri": "../../../src/shared/assets/images/rickAndMorty/rickAndMorty.webp",
+    }
+  }
+  style={
+    {
+      "height": 32,
+      "width": 105,
+    }
+  }
+/>
+`;
+
+exports[`RickAndMortyHeader component should generate snapshot 1`] = `
+<Image
+  resizeMode="contain"
+  source={
+    {
+      "testUri": "../../../src/shared/assets/images/rickAndMorty/rickAndMorty.webp",
+    }
+  }
+  style={
+    {
+      "height": 32,
+      "width": 105,
+    }
+  }
+/>
+`;

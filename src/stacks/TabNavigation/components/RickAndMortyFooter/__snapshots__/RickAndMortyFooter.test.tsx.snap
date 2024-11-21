@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RickAndMortyFooter component should generate snapshot 1`] = `
+<View
+  style={
+    {
+      "alignItems": "center",
+      "backgroundColor": "#224229",
+      "height": 140,
+      "justifyContent": "center",
+    }
+  }
+>
+  <Image
+    resizeMode="contain"
+    source={
+      {
+        "testUri": "../../../src/shared/assets/images/rickAndMortyBig/rickAndMortyBig.webp",
+      }
+    }
+    style={
+      {
+        "height": 92,
+      }
+    }
+  />
+</View>
+`;
