@@ -42,10 +42,7 @@ const FavoriteCharactersScreen = () => {
   }, [data, inputValue, statusFilter, speciesFilter]);
 
   const handleCharacterPress = (id: number) => {
-    navigate('CharacterDetailsStack', {
-      screen: 'CharacterDetailsScreen',
-      params: {id},
-    });
+    navigate('CharacterDetailsScreen', {id});
   };
 
   const handleApplyFilters = (status: Status, species: Species) => {
