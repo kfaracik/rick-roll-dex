@@ -1,5 +1,5 @@
 import React, {useMemo, useState} from 'react';
-import {KeyboardAvoidingView, Platform} from 'react-native';
+import {KeyboardAvoidingView, Platform, Text, View} from 'react-native';
 import {useAtom} from 'jotai';
 import {favoriteCharactersAtom} from '../../../../shared/store/favoriteCharactersStore';
 import {styles} from './FavoriteCharacters.styled';
@@ -29,6 +29,10 @@ const FavoriteCharactersScreen = () => {
   });
 
   const filteredCharacters = useMemo(() => {
+    if (isLoading || !Array.isArray(data)) {
+      return [];
+    }
+
     return data.filter((character: Character) => {
       const matchesName = character.name
         .toLowerCase()
@@ -65,11 +69,19 @@ const FavoriteCharactersScreen = () => {
           handleApplyFilters={handleApplyFilters}
           clearInput={handleClearInput}
         />
-        <CharacterList
-          data={filteredCharacters}
-          isLoading={isLoading}
-          onCharacterPress={handleCharacterPress}
-        />
+        {filteredCharacters.length ? (
+          <CharacterList
+            data={filteredCharacters}
+            isLoading={isLoading}
+            onCharacterPress={handleCharacterPress}
+          />
+        ) : (
+          <View style={styles.noFavoritesContainer}>
+            <Text style={styles.noFavoritesText}>
+              No favorite characters yet. Start adding some!
+            </Text>
+          </View>
+        )}
       </KeyboardAvoidingView>
     </ScreenContainer>
   );
