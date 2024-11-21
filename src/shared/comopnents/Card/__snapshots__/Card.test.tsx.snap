@@ -1,0 +1,283 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Button component should generate snapshot 1`] = `
+<View
+  collapsable={false}
+  entering={
+    FadeIn {
+      "build": [Function],
+      "durationV": 300,
+      "randomizeDelay": false,
+      "reduceMotionV": "system",
+    }
+  }
+  exiting={
+    FadeOut {
+      "build": [Function],
+      "durationV": 300,
+      "randomizeDelay": false,
+      "reduceMotionV": "system",
+    }
+  }
+  jestAnimatedStyle={
+    {
+      "value": {},
+    }
+  }
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "rgba(247, 243, 249, 1)",
+        "borderRadius": 24,
+        "margin": 0,
+        "marginHorizontal": 16,
+        "shadowColor": "#000",
+        "shadowOffset": {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.15,
+        "shadowRadius": 3,
+      }
+    }
+    testID="card-container-outer-layer"
+  >
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "rgba(247, 243, 249, 1)",
+          "borderColor": "#224229",
+          "borderRadius": 24,
+          "borderWidth": 1,
+          "boxShadow": [
+            {
+              "color": "#224229",
+              "offsetX": 5,
+              "offsetY": 5,
+            },
+          ],
+          "elevation": 1,
+          "flex": undefined,
+          "minHeight": 224,
+          "overflow": "hidden",
+          "padding": 12,
+          "shadowColor": "#000",
+          "shadowOffset": {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 1,
+        }
+      }
+      testID="card-container"
+    >
+      <View
+        style={
+          [
+            {
+              "flexShrink": 1,
+            },
+            undefined,
+          ]
+        }
+        testID="card"
+      >
+        <View
+          borderRadiusStyles={
+            {
+              "borderRadius": 24,
+            }
+          }
+          style={
+            [
+              {
+                "paddingHorizontal": 16,
+              },
+              {
+                "paddingVertical": 16,
+              },
+              [
+                {
+                  "alignItems": "flex-start",
+                  "gap": 20,
+                  "margin": 0,
+                  "paddingHorizontal": 0,
+                  "paddingVertical": 0,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                },
+                {
+                  "writingDirection": "ltr",
+                },
+                undefined,
+              ]
+            }
+          >
+            Test texts
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`Card component should generate snapshot 1`] = `
+<View
+  collapsable={false}
+  entering={
+    FadeIn {
+      "build": [Function],
+      "durationV": 300,
+      "randomizeDelay": false,
+      "reduceMotionV": "system",
+    }
+  }
+  exiting={
+    FadeOut {
+      "build": [Function],
+      "durationV": 300,
+      "randomizeDelay": false,
+      "reduceMotionV": "system",
+    }
+  }
+  jestAnimatedStyle={
+    {
+      "value": {},
+    }
+  }
+>
+  <View
+    collapsable={false}
+    style={
+      {
+        "backgroundColor": "rgba(247, 243, 249, 1)",
+        "borderRadius": 24,
+        "margin": 0,
+        "marginHorizontal": 16,
+        "shadowColor": "#000",
+        "shadowOffset": {
+          "height": 1,
+          "width": 0,
+        },
+        "shadowOpacity": 0.15,
+        "shadowRadius": 3,
+      }
+    }
+    testID="card-container-outer-layer"
+  >
+    <View
+      collapsable={false}
+      style={
+        {
+          "backgroundColor": "rgba(247, 243, 249, 1)",
+          "borderColor": "#224229",
+          "borderRadius": 24,
+          "borderWidth": 1,
+          "boxShadow": [
+            {
+              "color": "#224229",
+              "offsetX": 5,
+              "offsetY": 5,
+            },
+          ],
+          "elevation": 1,
+          "flex": undefined,
+          "minHeight": 224,
+          "overflow": "hidden",
+          "padding": 12,
+          "shadowColor": "#000",
+          "shadowOffset": {
+            "height": 1,
+            "width": 0,
+          },
+          "shadowOpacity": 0.3,
+          "shadowRadius": 1,
+        }
+      }
+      testID="card-container"
+    >
+      <View
+        style={
+          [
+            {
+              "flexShrink": 1,
+            },
+            undefined,
+          ]
+        }
+        testID="card"
+      >
+        <View
+          borderRadiusStyles={
+            {
+              "borderRadius": 24,
+            }
+          }
+          style={
+            [
+              {
+                "paddingHorizontal": 16,
+              },
+              {
+                "paddingVertical": 16,
+              },
+              [
+                {
+                  "alignItems": "flex-start",
+                  "gap": 20,
+                  "margin": 0,
+                  "paddingHorizontal": 0,
+                  "paddingVertical": 0,
+                },
+                undefined,
+              ],
+            ]
+          }
+        >
+          <Text
+            style={
+              [
+                {
+                  "textAlign": "left",
+                },
+                {
+                  "color": "rgba(28, 27, 31, 1)",
+                  "fontFamily": "System",
+                  "fontWeight": "400",
+                  "letterSpacing": 0,
+                },
+                {
+                  "writingDirection": "ltr",
+                },
+                undefined,
+              ]
+            }
+          >
+            Test texts
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;

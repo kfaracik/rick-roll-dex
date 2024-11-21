@@ -58,12 +58,12 @@ export const CharacterList = ({
       <ActivityIndicator size="large" />
     ) : (
       <View style={styles.noDataContainer}>
-        <Text>No characters found</Text>
+        <Text style={styles.noFavoritesText}>Character not found </Text>
       </View>
     );
 
   const keyExtractor = useCallback(
-    (item: any, i: number) => `${i}-${item.id}`,
+    (item: Character, i: number) => `${i}-${item.id}`,
     [],
   );
 

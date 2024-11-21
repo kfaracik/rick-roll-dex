@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../utils';
 
 export const styles = StyleSheet.create({
   listContainer: {
@@ -17,5 +18,12 @@ export const styles = StyleSheet.create({
   },
   noDataContainer: {
     margin: 16,
+    justifyContent: 'center',
+  },
+  noFavoritesText: {
+    fontSize: 18,
+    color: Colors.mediumGreen,
+    textAlign: 'center',
+    fontWeight: 'bold',
   },
 });
