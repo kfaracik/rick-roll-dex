@@ -20,7 +20,7 @@ This application is a technical task designed to showcase the implementation of 
 
 1. Clone this repository:
    ```bash
-   git clone <repository_url>
+   git clone https://github.com/kfaracik/rick-roll-dex
    ```
 2. Install dependencies:
    ```bash
@@ -116,37 +116,6 @@ The app follows a modular architecture to enhance maintainability and scalabilit
 
 ---
 
-## Folder Structure
-
-```
-src/
-├── components/            # Reusable UI components
-├── screens/               # Screens (e.g., CharacterList, CharacterDetails)
-├── store/                 # Jotai state atoms
-├── config/                # API and app configuration
-├── styles/                # Shared styles
-├── utils/                 # Utility functions
-└── app.tsx                # Main entry point
-```
-
----
-
-## Example Usage
-
-### Adding a Character to Favorites
-
-```tsx
-import {useAtom} from 'jotai';
-import {addFavoriteCharacter} from './store/favoriteCharactersAtoms';
-
-const addToFavorites = (id: number) => {
-  const [, setFavorite] = useAtom(addFavoriteCharacter);
-  setFavorite(id);
-};
-```
-
----
-
 ## Dependencies
 
 ### Core Libraries:
@@ -169,15 +138,6 @@ const addToFavorites = (id: number) => {
 | `react-native-paper`        | ^5.12.5 |
 | `@shopify/flash-list`       | ^1.7.2  |
 | `react-native-vector-icons` | ^10.2.0 |
-
----
-
-## Future Improvements
-
-- **Localization**: Add support for multiple languages.
-- **Error Handling**: Improve error boundaries and API error messages.
-- **Testing**: Add unit and integration tests using Jest.
-- **Advanced Caching**: Use React Query's advanced caching mechanisms for better performance.
 
 ---
 
