@@ -10,17 +10,18 @@ import {
 import {styles} from './CharacterDetails.styled';
 import {Button, Card, CategoryValueText} from '../../../../shared/comopnents';
 import {RouteProp, useRoute} from '@react-navigation/native';
-import {CharacterDetailsStackParamList} from '../../CharacterDetails.routes';
 import {RickAndMortyFooter} from '../../../TabNavigation/components';
 import {Colors} from '../../../../shared/utils';
 import {useSingleCharacter} from '../../../../shared/api';
 import {ActivityIndicator} from 'react-native-paper';
+import {useAtom} from 'jotai';
+import {favoriteCharactersAtom} from '../../../../shared/store/favoriteCharactersStore';
+import {MainStackParamList} from '../../../Main/Main.routes';
 
 type CharacterDetailsRouteProp = RouteProp<
-  CharacterDetailsStackParamList,
+  MainStackParamList,
   'CharacterDetailsScreen'
 >;
-
 const VERTICAL_MARGINS = 80;
 
 const CharacterDetailsScreen = () => {
@@ -29,15 +30,21 @@ const CharacterDetailsScreen = () => {
   const {width: screenWidth} = useWindowDimensions();
   const width = screenWidth - VERTICAL_MARGINS;
 
+  const [favorites, setFavorites] = useAtom(favoriteCharactersAtom);
+
+  const liked = favorites.includes(id);
+
   const onLikePress = () => {
-    Alert.alert('TODO: implement');
+    setFavorites(prev =>
+      liked ? prev.filter(favId => favId !== id) : [...prev, id],
+    );
   };
 
   const {data: character, isLoading} = useSingleCharacter({id});
 
   if (isLoading) {
     return (
-      <Card style={styles.card} contentStyle={styles.content}>
+      <Card style={styles.card} contentStyle={styles.loadingContainer}>
         <ActivityIndicator size={'large'} />
       </Card>
     );
@@ -90,10 +97,10 @@ const CharacterDetailsScreen = () => {
           </View>
           <View style={styles.buttonContainer}>
             <Button
-              title={'ADD TO LIKED'}
+              title={liked ? 'REMOVE FROM LIKED' : 'ADD TO LIKED'}
               onPress={onLikePress}
-              iconName={'staro'}
-              iconColor={Colors.white}
+              iconName={liked ? 'star' : 'staro'}
+              iconColor={liked ? Colors.accent : Colors.white}
               mode={'primary'}
               style={styles.button}
             />
