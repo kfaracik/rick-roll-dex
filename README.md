@@ -38,6 +38,13 @@ This application is a technical task designed to showcase the implementation of 
 
 ---
 
+## Design
+
+For UI/UX design references, view the Figma file:  
+[Design on Figma](https://www.figma.com/design/Ui91kU1cPRnMYW09DorLK1/Rick-%26-Morty-Task?node-id=0-1&node-type=canvas&t=FxH9v4bfF7NDkwUC-0)
+
+---
+
 ## Technologies Used
 
 ### 1. **React Native**
