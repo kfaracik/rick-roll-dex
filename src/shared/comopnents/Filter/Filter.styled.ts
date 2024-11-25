@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {Colors} from '../../utils';
 
 export const styles = StyleSheet.create({
   container: {
@@ -15,5 +16,10 @@ export const styles = StyleSheet.create({
     flexDirection: 'row',
     width: '100%',
     justifyContent: 'space-between',
+  },
+  categoryName: {
+    fontFamily: 'DMMono-Regular',
+    color: Colors.mediumGreen,
+    fontSize: 14,
   },
 });

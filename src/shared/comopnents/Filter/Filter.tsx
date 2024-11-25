@@ -55,7 +55,7 @@ export const Filter = ({onApplyFilters}: FilterProps) => {
       {filterOptionsExpanded && (
         <Card style={styles.card}>
           <View>
-            <Text>STATUS</Text>
+            <Text style={styles.categoryName}>STATUS</Text>
             <CheckboxItem
               label="Alive"
               value="Alive"
@@ -76,7 +76,7 @@ export const Filter = ({onApplyFilters}: FilterProps) => {
             />
           </View>
           <View>
-            <Text>SPECIES</Text>
+            <Text style={styles.categoryName}>SPECIES</Text>
             <CheckboxItem
               label="Human"
               value="Human"
