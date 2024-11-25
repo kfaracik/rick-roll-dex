@@ -1,7 +1,8 @@
 import React from 'react';
 import {Checkbox} from 'react-native-paper';
 import {Colors} from '../../utils';
-import { Species, Status } from '../../api';
+import {Species, Status} from '../../api';
+import { styles } from './CheckboxItem.styled';
 
 type CheckboxItemProps = {
   label: string;
@@ -22,7 +23,7 @@ export const CheckboxItem = ({
       color={Colors.primary}
       uncheckedColor={Colors.greyshGreen}
       style={{flexDirection: 'row-reverse'}}
-      labelStyle={{color: Colors.primary}}
+      labelStyle={styles.label}
       status={status === value ? 'checked' : 'unchecked'}
       onPress={() => onPress(value)}
     />
