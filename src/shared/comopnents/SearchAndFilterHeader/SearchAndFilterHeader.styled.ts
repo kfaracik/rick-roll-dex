@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
     marginHorizontal: 16,
   },
   title: {
+    fontFamily: 'Inter_18pt-Regular',
     fontSize: 36,
   },
 });

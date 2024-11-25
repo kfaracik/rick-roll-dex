@@ -13,10 +13,12 @@ export const styles = StyleSheet.create({
     margin: -6,
   },
   textPrimary: {
+    fontFamily: 'DMMono-Regular',
     color: Colors.white,
     fontSize: 14,
   },
   textWhite: {
+    fontFamily: 'DMMono-Regular',
     color: Colors.primary,
     fontSize: 14,
   },

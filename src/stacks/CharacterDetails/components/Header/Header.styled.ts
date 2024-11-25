@@ -12,6 +12,7 @@ export const styles = StyleSheet.create({
     backgroundColor: Colors.primary,
   },
   headerText: {
+    fontFamily: 'Inter_18pt-Regular',
     fontSize: 12,
     color: Colors.mediumGreen,
     textDecorationLine: 'underline',
