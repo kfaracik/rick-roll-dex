@@ -61,6 +61,7 @@ const styles = StyleSheet.create({
   tabBarLabel: {
     fontSize: 14,
     fontWeight: '400',
+    fontFamily: 'DMMono-Regular',
   },
   tabBarIndicator: {
     backgroundColor: Colors.white,
