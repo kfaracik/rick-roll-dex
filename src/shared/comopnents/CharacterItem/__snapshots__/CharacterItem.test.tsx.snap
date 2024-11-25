@@ -6,7 +6,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
   entering={
     FadeIn {
       "build": [Function],
-      "durationV": 300,
+      "durationV": 200,
       "randomizeDelay": false,
       "reduceMotionV": "system",
     }
@@ -14,7 +14,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
   exiting={
     FadeOut {
       "build": [Function],
-      "durationV": 300,
+      "durationV": 200,
       "randomizeDelay": false,
       "reduceMotionV": "system",
     }
@@ -167,6 +167,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                   style={
                     {
                       "color": "#59695C",
+                      "fontFamily": "DMMono-Regular",
                       "fontSize": 12,
                     }
                   }
@@ -178,6 +179,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                     [
                       {
                         "color": "#162C1B",
+                        "fontFamily": "Inter_18pt-Regular",
                         "fontSize": 16,
                       },
                       undefined,
@@ -201,6 +203,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                   style={
                     {
                       "color": "#59695C",
+                      "fontFamily": "DMMono-Regular",
                       "fontSize": 12,
                     }
                   }
@@ -212,6 +215,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                     [
                       {
                         "color": "#162C1B",
+                        "fontFamily": "Inter_18pt-Regular",
                         "fontSize": 16,
                       },
                       undefined,
@@ -235,6 +239,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                   style={
                     {
                       "color": "#59695C",
+                      "fontFamily": "DMMono-Regular",
                       "fontSize": 12,
                     }
                   }
@@ -246,6 +251,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                     [
                       {
                         "color": "#162C1B",
+                        "fontFamily": "Inter_18pt-Regular",
                         "fontSize": 16,
                       },
                       undefined,
@@ -438,6 +444,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                               ],
                               {
                                 "color": "#224229",
+                                "fontFamily": "DMMono-Regular",
                                 "fontSize": 14,
                               },
                             ],
@@ -462,6 +469,7 @@ exports[`CharacterItem component should generate snapshot 1`] = `
                               },
                               {
                                 "color": "#224229",
+                                "fontFamily": "DMMono-Regular",
                                 "fontSize": 14,
                               },
                             ]

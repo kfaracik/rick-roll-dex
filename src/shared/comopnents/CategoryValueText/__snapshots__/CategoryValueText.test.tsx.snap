@@ -1,42 +1,5 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button component should generate snapshot 1`] = `
-<View
-  style={
-    [
-      {
-        "padding": 8,
-      },
-      undefined,
-    ]
-  }
->
-  <Text
-    style={
-      {
-        "color": "#59695C",
-        "fontSize": 12,
-      }
-    }
-  >
-    Category
-  </Text>
-  <Text
-    style={
-      [
-        {
-          "color": "#162C1B",
-          "fontSize": 16,
-        },
-        undefined,
-      ]
-    }
-  >
-    some calue 1234
-  </Text>
-</View>
-`;
-
 exports[`CategoryValueText component should generate snapshot 1`] = `
 <View
   style={
@@ -52,6 +15,7 @@ exports[`CategoryValueText component should generate snapshot 1`] = `
     style={
       {
         "color": "#59695C",
+        "fontFamily": "DMMono-Regular",
         "fontSize": 12,
       }
     }
@@ -63,6 +27,7 @@ exports[`CategoryValueText component should generate snapshot 1`] = `
       [
         {
           "color": "#162C1B",
+          "fontFamily": "Inter_18pt-Regular",
           "fontSize": 16,
         },
         undefined,
