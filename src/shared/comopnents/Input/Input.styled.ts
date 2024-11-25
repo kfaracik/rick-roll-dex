@@ -12,5 +12,6 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     paddingVertical: 0,
     paddingHorizontal: 8,
+    fontFamily: 'DMMono-Regular',
   },
 });
