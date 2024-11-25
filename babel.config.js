@@ -4,7 +4,7 @@ module.exports = {
     [
       require.resolve('babel-plugin-module-resolver'),
       {
-        extensions: ['.ts', '.tsx', '.js'],
+        extensions: ['.ios.js', '.android.js', '.js', '.ts', '.tsx', '.json'],
         alias: {
           '@shared/components': './src/shared/components/index.ts',
           '@shared/utils': './src/shared/utils/index.ts',

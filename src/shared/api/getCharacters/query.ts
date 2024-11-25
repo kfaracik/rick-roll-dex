@@ -18,7 +18,9 @@ export const useCharacters = ({
         species,
       }),
     getNextPageParam: lastPage => {
-      return lastPage?.info?.next || undefined;
+      return lastPage?.info?.next
+        ? parseInt(lastPage.info.next.split('=')[1], 10)
+        : undefined;
     },
     staleTime: 1000 * 60, // 1 minute
   });
