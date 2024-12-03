@@ -12,7 +12,7 @@ type AnimatedViewBasicProps = {
   disableAnimation?: boolean;
 } & AnimatedProps<ViewProps>;
 
-export const BASIC_ANIMATION_DURATION_MS = 300;
+export const BASIC_ANIMATION_DURATION_MS = 200;
 
 export const AnimatedViewBasic = ({
   children,
